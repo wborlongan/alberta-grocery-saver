@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grocery Saver</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HOME SCREEN -->
+
+<section id="home" class="screen active">
+
+<div class="header">
+    <h1>Grocery Saver</h1>
+    <p>Find affordable groceries near you.</p>
+</div>
+
+<input
+id="searchInput"
+class="search-bar"
+type="text"
+placeholder="Search products or stores"
+onkeyup="searchProducts()">
+
+<div class="filter-group">
+
+    <select>
+        <option>Budget</option>
+        <option>Under $20</option>
+        <option>Under $50</option>
+        <option>Under $100</option>
+    </select>
+
+    <select>
+        <option>Food Category</option>
+        <option>Dairy</option>
+        <option>Produce</option>
+        <option>Meat</option>
+        <option>Snacks</option>
+    </select>
+
+    <select>
+        <option>Distance</option>
+        <option>1 km</option>
+        <option>5 km</option>
+        <option>10 km</option>
+    </select>
+
+</div>
+
+<div class="card product-card">
+    <h3>Recommended Store</h3>
+    <p>FreshCo</p>
+    <div class="price">$11.86 Savings</div>
+</div>
+
+<div class="card product-card" id="milk-card">
+    <h3>Milk</h3>
+    <p id="milk-price">
+        Cheapest Price: $3.99
+    </p>
+
+    <button
+        class="button"
+        onclick="showScreen('compare')">
+        Compare Prices
+    </button>
+
+    <button
+        class="button secondary"
+        onclick="reportPrice('Milk')">
+        Report New Price
+    </button>
+</div>
+
+<div class="card product-card" id="eggs-card">
+    <h3>Eggs</h3>
+    <p id="eggs-price">
+        Cheapest Price: $3.49
+    </p>
+
+    <button
+        class="button"
+        onclick="showScreen('compare')">
+        Compare Prices
+    </button>
+
+    <button
+        class="button secondary"
+        onclick="reportPrice('Eggs')">
+        Report New Price
+    </button>
+</div>
+
+<div class="card product-card" id="bread-card">
+    <h3>Bread</h3>
+    <p id="bread-price">
+        Cheapest Price: $2.79
+    </p>
+
+    <button
+        class="button"
+        onclick="showScreen('compare')">
+        Compare Prices
+    </button>
+
+    <button
+        class="button secondary"
+        onclick="reportPrice('Bread')">
+        Report New Price
+    </button>
+</div>
+
+</section>
+
+<!-- COMPARE SCREEN -->
+
+<section id="compare" class="screen">
+
+<div class="header">
+    <h1>Compare Prices</h1>
+</div>
+
+<input
+    id="compareSearch"
+    class="search-bar"
+    type="text"
+    placeholder="Search Product"
+    onkeyup="searchCompareProducts()">
+
+<div id="compare-results">
+
+    <div class="card product-card">
+        <h3>FreshCo</h3>
+        <p>Milk - $3.99</p>
+        <p>Location: St. Albert</p>
+    </div>
+
+    <div class="card product-card">
+        <h3>Walmart</h3>
+        <p>Milk - $4.29</p>
+        <p>Location: Edmonton</p>
+    </div>
+
+    <div class="card product-card">
+        <h3>Superstore</h3>
+        <p>Milk - $4.49</p>
+        <p>Location: Edmonton</p>
+    </div>
+
+    <div class="card product-card">
+        <h3>Safeway</h3>
+        <p>Milk - $4.79</p>
+        <p>Location: St. Albert</p>
+    </div>
+
+</div>
+
+<button class="button" onclick="showScreen('submit')">
+    Report New Price
+</button>
+
+</section>
+
+<!-- DEALS SCREEN -->
+
+<section id="deals" class="screen">
+
+<div class="header">
+    <h1>Student Discounts</h1>
+</div>
+<div class="card product-card">
+    <h3>Walmart</h3>
+    <p>10% Student Discount</p>
+</div>
+
+<div class="card product-card">
+    <h3>FreshCo</h3>
+    <p>Tuesday Student Specials</p>
+</div>
+
+<div class="card product-card">
+    <h3>Save-On Foods</h3>
+    <p>$5 Off Purchases Over $40</p>
+</div>
+
+</section>
+
+<!-- SUBMIT SCREEN -->
+
+<section id="submit" class="screen">
+
+    <div class="header">
+        <h1>Submit Price Update</h1>
+    </div>
+
+    <label>Product Name</label>
+    <input id="product" type="text" placeholder="Milk">
+
+    <label>Store Name</label>
+    <input id="store" type="text" placeholder="Walmart">
+
+    <label>Price</label>
+    <input id="price" type="number" placeholder="4.29">
+
+    <label>Location</label>
+    <input id="location" type="text" placeholder="Edmonton">
+
+    <button class="button" onclick="submitPrice()">
+        Submit Price Update
+    </button>
+
+    <div class="community-section">
+
+        <h2>Community Price Updates</h2>
+
+        <div id="updates">
+
+            <div class="card">
+                <strong>Milk</strong><br>
+                Store: Walmart<br>
+                Price: $4.29<br>
+                Location: Edmonton
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+<button onclick="showScreen('home')">
+    Home
+</button>
+
+<button onclick="showScreen('compare')">
+    Compare
+</button>
+
+<button onclick="showScreen('deals')">
+    Deals
+</button>
+
+<button onclick="showScreen('submit')">
+    Add
+</button>
+
+</nav>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
